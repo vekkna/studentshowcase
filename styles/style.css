@@ -19,3 +19,7 @@ h6 {
     border-radius: 2px;
     border: 1px solid white;
 }
+
+figcaption{
+    text-align: center;
+}
