@@ -15,3 +15,12 @@ function showDivs(n) {
     }
     x[slideIndex - 1].style.display = "block";
 }
+
+window.onkeydown = (gfg) => {
+    if (gfg.keyCode === 37) {
+        plusDivs(-1)
+    }
+    else if (gfg.keyCode === 39) {
+        plusDivs(1);
+    }
+}
