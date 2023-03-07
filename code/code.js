@@ -1,4 +1,5 @@
 var slideIndex = 1;
+const slides = document.getElementsByClassName("slideshow");
 showDivs(slideIndex);
 
 function plusDivs(n) {
@@ -6,21 +7,21 @@ function plusDivs(n) {
 }
 
 function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("slideshow");
-    if (n > x.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = x.length }
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
-    x[slideIndex - 1].style.display = "block";
+    slides[slideIndex - 1].style.display = "block";
 }
 
-document.onkeydown = (e) => {
-    if (e.key === "ArrowLeft") {
-        plusDivs(-1);
+window.onkeydown = (gfg) => {
+    if (gfg.keyCode === 37) {
+        plusDivs(-1)
     }
-    else if (e.key === "ArrowRight") {
+    else if (gfg.keyCode === 39) {
         plusDivs(1);
     }
-} 
+}
+
+setInterval(() => plusDivs(1), 5000);
