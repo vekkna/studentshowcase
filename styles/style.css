@@ -12,10 +12,18 @@ h6 {
     margin-bottom: 12px
 }
 
-.slideshow, .slideshow3D {
-    display:none;
+.slideshow,
+.slideshow3D {
+    display: none;
     height: 400px;
     margin: auto;
     border-radius: 2px;
     border: 1px solid white;
+    position: relative;
+}
+
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
