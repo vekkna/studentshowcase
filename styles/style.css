@@ -22,7 +22,8 @@ h6 {
     position: relative;
 }
 
-.slideshow img {
+.slideshow img,
+video {
     width: 100%;
     height: 100%;
     object-fit: contain;
