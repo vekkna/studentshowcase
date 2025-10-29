@@ -18,10 +18,36 @@ function plusDivs(n) {
 function showDivs(n) {
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
+
+    // Loop through ALL slides first
     for (let i = 0; i < slides.length; i++) {
+        // Hide the slide
         slides[i].style.display = "none";
+
+        // Find any video inside this slide
+        let video = slides[i].querySelector("video");
+        if (video) {
+            // Pause the video when it's not active
+            video.pause();
+        }
     }
-    slides[slideIndex - 1].style.display = "block";
+
+    // Now, get the ONE slide we want to show
+    let activeSlide = slides[slideIndex - 1];
+
+    // Find the video in THAT active slide
+    let activeVideo = activeSlide.querySelector("video");
+    if (activeVideo) {
+        // Reset its time to the beginning
+        activeVideo.currentTime = 0;
+        // Play the video (see note below)
+        activeVideo.play().catch(error => {
+            console.log("Video autoplay was prevented by the browser.");
+        });
+    }
+
+    // Show the active slide
+    activeSlide.style.display = "block";
 }
 
 window.onkeydown = (gfg) => {
